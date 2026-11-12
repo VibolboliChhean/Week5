@@ -1,0 +1,298 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .dash{
+            --ink: #1e2243;
+            --muted: #8e93b3;
+            --blue: #5b7cfa;
+            --pink: #ff6b7a;
+            --bg: #f7f8fd;
+            display: grid;
+            grid-template-columns: 200px 1fr 260px;
+            grid-template-areas: "nav main profile";
+            min-height: 560px;
+            background-color: white;
+            border-radius: 17px;
+            overflow: hidden;
+            color: var(--ink);
+            font-size: 13px;
+        }
+        .dash nav{
+            grid-area: nav;
+            padding: 20px;
+            display: flex;
+            flex-direction: column;
+            gap: 29px;
+            border-right: 1px solid #eef0f8;
+        }
+        .dash nav .logo{
+            font-weight: 700;
+            font-size: 18px;
+            margin-bottom: 15px;
+        }
+        .dash nav a.on{
+            color: var(--ink);
+            font-weight: 600;
+        }
+        .dash nav .upgrade{
+            margin-top: auto;
+            background-color: var(--bg);
+            border-radius: 13px;
+            padding: 14px;
+            text-align: center;
+            color: var(--muted);
+        }
+        .dash nav .upgrade button{
+            margin-top: 8px;
+            width: 100%;
+            background-color: var(--blue);
+            color: white;
+            border: 0;
+            border-radius: 7px;
+            padding: 8px;
+        }
+        .dash main{
+            grid-area: main;
+            padding: 20px;
+            background-color: var(--bg);
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            grid-template-rows:  auto auto auto auto;
+            gap: 17px;
+            align-content: start;
+        }
+
+        .dash .topbar {
+            grid-column: 1 / -1;
+            display: flex;
+            justify-content: space-between;
+            font-weight: 600;
+        }
+
+        .dash .welcome {
+            grid-column: 1 / -1;
+            background: #fde4e6;
+            border-radius: 10px;
+            padding: 20px;
+        }
+
+        .dash .welcome h3 {
+            margin: 0 0 6px;
+            color: var(--pink);
+            font-size: 16px;
+        }
+
+        .dash .panel {
+            background: #fff;
+            border-radius: 10px;
+            padding: 14px;
+        }
+
+        .dash .panel h4 {
+            margin: 0 0 10px;
+            font-size: 13px;
+        }
+
+        .dash .row {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            padding: 6px 0;
+            border-bottom: 1px solid #f0f1f8;
+        }
+
+        .dash .row span:first-child {
+            flex: 1;
+        }
+
+        .dash .bar {
+            width: 60px;
+            height: 4px;
+            border-radius: 2px;
+            background: #e6e8f5;
+            overflow: hidden;
+        }
+
+        .dash .bar i {
+            display: block;
+            height: 100%;
+            background: var(--blue);
+        }
+
+        .dash .bar i.low {
+            background: var(--pink);
+        }
+
+        .dash .chart {
+            display: grid;
+            grid-template-columns: repeat(7, 1fr);
+            align-items: end;
+            gap: 8px;
+            height: 130px;
+            text-align: center;
+            color: var(--muted);
+        }
+
+        .dash .chart div {
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-end;
+            height: 100%;
+            gap: 4px;
+        }
+
+        .dash .chart i {
+            display: block;
+            width: 6px;
+            margin: 0 auto;
+            border-radius: 3px;
+            background: var(--blue);
+        }
+
+        .dash .courses {
+            grid-column: 1 / -1;
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 12px;
+        }
+
+        .dash .course {
+            border-radius: 10px;
+            padding: 14px;
+            color: #fff;
+        }
+
+        .dash .c1 {
+            background: #4a45b0;
+        }
+
+        .dash .c2 {
+            background: #8f8fd6;
+        }
+
+        .dash .c3 {
+            background: var(--pink);
+        }
+
+        .dash aside {
+            grid-area: profile;
+            padding: 20px;
+            display: flex;
+            flex-direction: column;
+            gap: 16px;
+        }
+
+        .dash .avatar {
+            width: 80px;
+            height: 80px;
+            border-radius: 50%;
+            background: #d9dcf0;
+            margin: 0 auto;
+        }
+
+        .dash aside .name {
+            text-align: center;
+            font-weight: 600;
+        }
+
+        .dash .reminder {
+            padding: 8px;
+            border-radius: 8px;
+            background: var(--bg);
+        }
+
+        @media (max-width: 800px) {
+            .dash {
+                grid-template-columns: 1fr;
+                grid-template-areas: "nav" "main" "profile";
+            }
+
+            .dash nav {
+                flex-direction: row;
+                flex-wrap: wrap;
+                border-right: 0;
+            }
+
+            .dash nav .upgrade {
+                display: none;
+            }
+
+            .dash main {
+                grid-template-columns: 1fr;
+            }
+
+            .dash .courses {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        @media (max-width: 500px) {
+            .cards {
+                grid-template-columns: 1fr;
+            }
+
+            .cards.spanned .card:nth-child(1) {
+                grid-column: auto;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="dash">
+        <nav>
+            <div class="logo">Linglee</div>
+            <a class="on" href="#">Dashboard</a>
+            <a href="#">Classes</a>
+            <a href="#">Resources</a>
+            <a href="#">Upgrate plan</a>
+            <a href="#">Chat</a>
+            <a href="#">Settings</a>
+            <div class="upgrade">Upgrade to Pro for more resources.</div>
+        </nav>
+        <main>
+            <div class="topbar"><span>Dashboard</span><span>13 Nov 2026, Friday</span></div>
+            <div class="welcome">
+                <h3>Welcome back Boli</h3>You've learned 80% of your goal this week! Keep it up and improve your results!
+            </div>
+            <div class="panel">
+                <h4>Latest results</h4>
+                <div class="row"><span>Unit 5 - Technology</span><span class="bar"><i class="low" style="width: 25%;"></i></span><span>25%</span></div>
+                <div class="row"><span>Unit 12 - Ecology</span><span class="bar"><i class="low" style="width: 45%;"></i></span><span>45%</span></div>
+                <div class="row"><span>Unit 9 - Real estate</span><span class="bar"><i style="width: 66%;"></i></span><span>66%</span></div>
+                <div class="row"><span>Unit 6 - Education</span><span class="bar"><i style="width: 75%;"></i></span><span>75%</span></div>
+                <div class="row"><span>Unit 16 - Job market</span><span class="bar"><i class="low" style="width: 20%;"></i></span><span>20%</span></div>
+            </div>
+            <div class="panel">
+                <h4>Time spent on learning</h4>
+                <div class="chart">
+                    <div><i style="height: 90%;"></i>Mon</div>
+                    <div><i style="height: 85%;"></i>Tue</div>
+                    <div><i style="height: 78%;"></i>Wed</div>
+                    <div><i style="height: 98%;"></i>Thu</div>
+                    <div><i style="height: 100%;"></i>Fri</div>
+                </div>
+            </div>
+            <div class="course">
+                <div class="course c1">Business <br><strong>Grammar</strong></div>
+                <div class="course c2">Common English <br><strong>Phrasal verbs</strong></div>
+                <div class="course c3">Business Spanish <br><strong>Vocabulary</strong></div>
+            </div>
+        </main>
+        <aside>
+            <div class="avatar"></div>
+            <div class="name">Boli Chheanvibol <br><small>Student</small></div>
+            <div class="row"><span>English - Intermediate</span><span class="bar"><i style="width: 65%;"></i></span></div>
+            <div class="row"><span>Spanish - Advanced</span><span class="bar"><i style="width: 80%;"></i></span></div>
+            <strong>Reminders</strong>
+            <div class="reminder">Eng - Vocabulary test <br><small>30 Nov 2026</small></div>
+        </aside>
+    </div>
+</body>
+
+</html>

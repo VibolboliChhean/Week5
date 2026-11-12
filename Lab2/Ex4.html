@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .products {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+            gap: 16px;
+        }
+
+        .product {
+            display: flex;
+            flex-direction: column;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            overflow: hidden;
+        }
+
+        .product .pic {
+            height: 110px;
+            background: linear-gradient(135deg, #f2994a, #f2c94c);
+        }
+
+        .product:nth-child(even) .pic {
+            background: linear-gradient(135deg, #56ccf2, #2f80ed);
+        }
+
+        .product .info {
+            display: flex;
+            flex-direction: column;
+            flex: 1;
+            padding: 12px;
+            gap: 6px;
+        }
+
+        .product p {
+            margin: 0;
+            font-size: 13px;
+            flex: 1;
+        }
+
+        /* pushes the footer down */
+        .product .foot {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .product button {
+            background: #2f80ed;
+            color: #fff;
+            border: 0;
+            border-radius: 4px;
+            padding: 6px 12px;
+            cursor: pointer;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="products">
+        <div class="product">
+            <div class="pic"></div>
+            <div class="info"><strong>Trail Backpack</strong>
+                <p>Light 30L pack with a padded back panel.</p>
+                <div class="foot"><span>$79</span><button>Add</button></div>
+            </div>
+        </div>
+        <div class="product">
+            <div class="pic"></div>
+            <div class="info"><strong>Water Bottle</strong>
+                <p>Insulated steel bottle, keeps drinks cold for 24 hours and hot for 12, with a leak-proof lid.</p>
+                <div class="foot"><span>$24</span><button>Add</button></div>
+            </div>
+        </div>
+        <div class="product">
+            <div class="pic"></div>
+            <div class="info"><strong>Headlamp</strong>
+                <p>Rechargeable, 400 lumens.</p>
+                <div class="foot"><span>$35</span><button>Add</button></div>
+            </div>
+        </div>
+        <div class="product">
+            <div class="pic"></div>
+            <div class="info"><strong>Camp Mug</strong>
+                <p>Enamel mug, 350 ml.</p>
+                <div class="foot"><span>$12</span><button>Add</button></div>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>

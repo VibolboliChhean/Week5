@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .layout {
+            display: grid;
+            grid-template-columns: 120px auto 120px;
+            grid-template-areas:
+            "header header header"
+            "sidebar content sidebar2"
+            "footer footer footer";
+            gap: 12px;
+        }
+        .layout > div { padding: 12px; border-radius: 5px; color: #fff; font-family: Georgia, serif; }
+        .layout .header   { grid-area: header;   background: #999; }
+        .layout .sidebar  { grid-area: sidebar;  background: #444; }
+        .layout .content  { grid-area: content;  background: #444; }
+        .layout .sidebar2 { grid-area: sidebar2; background: #ccc; color: #555; }
+        .layout .footer   { grid-area: footer;   background: #999; }
+        @media (max-width: 600px) {
+            .layout {
+                grid-template-columns: 120px auto;
+                grid-template-areas:
+                "header header"
+                "sidebar content"
+                "sidebar2 sidebar2"
+                "footer footer";
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="layout">
+        <div class="header">Header</div>
+        <div class="sidebar">Sidebar</div>
+        <div class="content">Content<br>More content than we had before so this column is now quite tall.</div>
+        <div class="sidebar2">Sidebar 2</div>
+        <div class="footer">Footer</div>
+    </div>
+</body>
+
+</html>
